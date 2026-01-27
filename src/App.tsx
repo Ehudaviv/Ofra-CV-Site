@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import './App.scss';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
@@ -16,6 +16,15 @@ function AppContent() {
   const i18nService = getI18nService();
   const [language, setLanguage] = useState(i18nService.getLanguage());
   const location = useLocation();
+  const navigate = useNavigate();
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Navigation items for swipe navigation
+  const navigationPaths = ['/', '/articles', '/exhibitions', '/student-artwork', '/links'];
+  
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     // Subscribe to language changes
@@ -50,8 +59,45 @@ function AppContent() {
     return 'section-about';
   };
 
+  // Touch handlers for swipe navigation
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    const currentIndex = navigationPaths.indexOf(location.pathname);
+    
+    if (isLeftSwipe && currentIndex < navigationPaths.length - 1) {
+      // Swipe left - go to next page
+      navigate(navigationPaths[currentIndex + 1]);
+    }
+    
+    if (isRightSwipe && currentIndex > 0) {
+      // Swipe right - go to previous page
+      navigate(navigationPaths[currentIndex - 1]);
+    }
+  };
+
   return (
-    <div className={`app ${getSectionClass()}`} dir={direction} data-language={language}>
+    <div 
+      className={`app ${getSectionClass()}`} 
+      dir={direction} 
+      data-language={language}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <header className="app-header">
         <LanguageSwitcher />
         <h1>{i18nService.translate('header.title')}</h1>

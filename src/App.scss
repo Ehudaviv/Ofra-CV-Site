@@ -213,11 +213,11 @@
   min-height: calc(100vh - 200px);
 
   @media (max-width: $breakpoint-tablet) {
-    padding: $spacing-4 0;
+    padding: $spacing-4 0 calc($spacing-20 + env(safe-area-inset-bottom)); // Extra padding for bottom nav
   }
   
   @media (max-width: $breakpoint-mobile) {
-    padding: $spacing-3 0;
+    padding: $spacing-3 0 calc($spacing-20 + env(safe-area-inset-bottom)); // Extra padding for bottom nav
   }
 }
 

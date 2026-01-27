@@ -16,62 +16,11 @@
 // ============================================
 
 .mobileMenuButton {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  width: 48px;
-  height: 48px;
-  padding: $spacing-2;
-  background: transparent;
-  border: 2px solid transparent;
-  border-radius: $border-radius-md;
-  cursor: pointer;
-  z-index: $z-index-dropdown + 1;
-  transition: all $transition-base;
-  
-  @media (max-width: $breakpoint-tablet) {
-    display: flex;
-  }
-  
-  &:hover {
-    background: rgba(212, 165, 116, 0.08);
-    border-color: rgba(212, 165, 116, 0.2);
-  }
-  
-  &:focus {
-    outline: none;
-    border-color: $color-accent;
-    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
-  }
-  
-  &.open {
-    background: rgba(212, 165, 116, 0.12);
-  }
+  display: none; // Hidden - using bottom nav instead
 }
 
 .hamburgerLine {
-  width: 24px;
-  height: 2.5px;
-  background: $color-text;
-  border-radius: $border-radius-full;
-  transition: all $transition-base $ease-bounce;
-  
-  .mobileMenuButton.open &:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
-    background: $color-primary;
-  }
-  
-  .mobileMenuButton.open &:nth-child(2) {
-    opacity: 0;
-    transform: scale(0);
-  }
-  
-  .mobileMenuButton.open &:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-    background: $color-primary;
-  }
+  display: none; // Hidden - using bottom nav instead
 }
 
 // ============================================
@@ -88,37 +37,21 @@
   align-items: center;
   
   @media (max-width: $breakpoint-tablet) {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: calc(100% + $spacing-4);
-    left: $spacing-4;
-    right: $spacing-4;
-    background: $color-background-light;
+    // Mobile: Fixed bottom navigation
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $z-index-sticky;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0;
+    padding: $spacing-2 $spacing-3 calc($spacing-2 + env(safe-area-inset-bottom));
+    background: $color-background-overlay;
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(212, 165, 116, 0.15);
-    border-radius: $border-radius-xl;
-    box-shadow: $shadow-xl;
-    padding: $spacing-4;
-    gap: $spacing-2;
-    z-index: $z-index-dropdown;
-    animation: slideDown $transition-base $ease-out;
-    
-    &.mobileOpen {
-      display: flex;
-    }
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    border-top: 1px solid rgba(212, 165, 116, 0.15);
+    box-shadow: 0 -4px 24px rgba(26, 20, 16, 0.08);
   }
 }
 
@@ -185,20 +118,31 @@
       opacity: 1;
       transform: scaleX(1);
     }
-    
-    @media (max-width: $breakpoint-tablet) {
-      background: $color-primary-gradient;
-      color: white;
-      font-weight: $font-weight-semibold;
-      box-shadow: $shadow-primary;
-    }
   }
   
   @media (max-width: $breakpoint-tablet) {
-    width: 100%;
-    text-align: center;
-    padding: $spacing-4 $spacing-6;
-    font-size: $font-size-lg;
+    // Mobile bottom nav: compact vertical layout
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-1;
+    padding: $spacing-2 $spacing-3;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    min-width: 60px;
+    border-radius: $border-radius-md;
+    
+    &.active {
+      color: $color-primary;
+      background: rgba(212, 165, 116, 0.12);
+      font-weight: $font-weight-bold;
+    }
+    
+    &:hover {
+      transform: none;
+      background: rgba(212, 165, 116, 0.08);
+    }
   }
 }
 

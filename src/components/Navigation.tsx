@@ -36,7 +36,6 @@ const navigationItems: NavigationItem[] = [
 export const Navigation: React.FC<NavigationProps> = ({ className }) => {
   const i18nService = getI18nService();
   const [language, setLanguage] = useState(i18nService.getLanguage());
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { setDirection } = useNavigation();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -62,11 +61,6 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
     }
   }, [location.pathname]);
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location]);
-
   const handleNavClick = (item: NavigationItem) => {
     // Determine direction based on index comparison
     if (item.index > currentIndex) {
@@ -76,27 +70,10 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
     }
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
     <nav className={`${styles.navigation} ${className || ''}`} role="navigation" aria-label="Main navigation">
-      {/* Mobile hamburger button */}
-      <button
-        className={`${styles.mobileMenuButton} ${isMobileMenuOpen ? styles.open : ''}`}
-        onClick={toggleMobileMenu}
-        aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-        aria-expanded={isMobileMenuOpen}
-        type="button"
-      >
-        <span className={styles.hamburgerLine}></span>
-        <span className={styles.hamburgerLine}></span>
-        <span className={styles.hamburgerLine}></span>
-      </button>
-
       {/* Navigation links */}
-      <ul className={`${styles.navList} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
+      <ul className={styles.navList}>
         {navigationItems.map((item) => (
           <li key={item.id} className={styles.navItem}>
             <NavLink
