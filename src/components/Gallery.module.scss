@@ -57,6 +57,7 @@
     opacity: 0;
     transition: opacity $transition-base;
     z-index: 1;
+    pointer-events: none; // Don't block clicks
   }
   
   &:hover::before {
@@ -73,6 +74,7 @@
   cursor: pointer;
   transition: all $transition-base;
   position: relative;
+  display: block;
   
   // Overlay effect on hover
   &::after {
@@ -86,14 +88,12 @@
     );
     opacity: 0;
     transition: opacity $transition-base;
+    pointer-events: none; // Don't block clicks
   }
 
   &:hover {
     transform: scale(1.05);
-    
-    .thumbnailWrapper {
-      box-shadow: $shadow-xl;
-    }
+    box-shadow: $shadow-xl;
     
     &::after {
       opacity: 1;
@@ -102,10 +102,7 @@
 
   &:focus {
     outline: none;
-    
-    .thumbnailWrapper {
-      box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.4);
-    }
+    box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.4);
   }
   
   &:active {
@@ -118,6 +115,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform $transition-slow;
+  pointer-events: none; // Don't block clicks on parent button
   
   .thumbnail:hover & {
     transform: scale(1.1);

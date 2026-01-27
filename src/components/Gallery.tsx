@@ -44,42 +44,7 @@ export const Gallery: React.FC<GalleryProps> = ({ images, className }) => {
     return unsubscribe;
   }, [i18nService]);
 
-  // Keyboard navigation for lightbox
-  useEffect(() => {
-    if (!isLightboxOpen) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      switch (e.key) {
-        case 'Escape':
-          handleClose();
-          break;
-        case 'ArrowLeft':
-          handlePrevious();
-          break;
-        case 'ArrowRight':
-          handleNext();
-          break;
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isLightboxOpen, handleClose, handleNext, handlePrevious]);
-
-  // Initialize loading states for all images
-  useEffect(() => {
-    const initialLoadingStates: Record<string, boolean> = {};
-    images.forEach(image => {
-      initialLoadingStates[image.id] = true;
-    });
-    setLoadingStates(initialLoadingStates);
-  }, [images]);
-
-  const handleThumbnailClick = (index: number) => {
-    setSelectedIndex(index);
-    setIsLightboxOpen(true);
-  };
-
+  // Define callbacks first before useEffect that uses them
   const handleClose = useCallback(() => {
     setIsLightboxOpen(false);
     setSelectedIndex(null);
@@ -102,6 +67,42 @@ export const Gallery: React.FC<GalleryProps> = ({ images, className }) => {
       return prev;
     });
   }, []);
+
+  // Keyboard navigation for lightbox - must come AFTER callback definitions
+  useEffect(() => {
+    if (!isLightboxOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'Escape':
+          handleClose();
+          break;
+        case 'ArrowLeft':
+          handlePrevious();
+          break;
+        case 'ArrowRight':
+          handleNext();
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isLightboxOpen, handleClose, handleNext, handlePrevious]);
+
+  const handleThumbnailClick = (index: number) => {
+    setSelectedIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  // Initialize loading states for all images
+  useEffect(() => {
+    const initialLoadingStates: Record<string, boolean> = {};
+    images.forEach(image => {
+      initialLoadingStates[image.id] = true;
+    });
+    setLoadingStates(initialLoadingStates);
+  }, [images]);
 
   const handleImageLoad = (imageId: string) => {
     setLoadingStates(prev => ({ ...prev, [imageId]: false }));
