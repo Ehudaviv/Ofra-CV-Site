@@ -35,20 +35,19 @@ function AppContent() {
   
   // Get section-specific class based on current route
   const getSectionClass = () => {
-    switch (location.pathname) {
-      case '/':
-        return 'section-about';
-      case '/articles':
-        return 'section-articles';
-      case '/exhibitions':
-        return 'section-exhibitions';
-      case '/student-artwork':
-        return 'section-student-artwork';
-      case '/links':
-        return 'section-links';
-      default:
-        return 'section-about';
+    const path = location.pathname;
+    if (path === '/' || path === '') {
+      return 'section-about';
+    } else if (path.includes('/articles')) {
+      return 'section-articles';
+    } else if (path.includes('/exhibitions')) {
+      return 'section-exhibitions';
+    } else if (path.includes('/student-artwork')) {
+      return 'section-student-artwork';
+    } else if (path.includes('/links')) {
+      return 'section-links';
     }
+    return 'section-about';
   };
 
   return (
@@ -77,7 +76,7 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <NavigationProvider>
         <AppContent />
       </NavigationProvider>
