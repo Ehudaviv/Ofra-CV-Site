@@ -30,9 +30,9 @@ interface ContentManagerConfig {
 }
 
 const DEFAULT_CONFIG: ContentManagerConfig = {
-  articlesPath: '/מאמרים',
-  exhibitionsPath: '/תמונות',
-  studentArtPath: '/ציורים בהנחייתי'
+  articlesPath: `${import.meta.env.BASE_URL}מאמרים`,
+  exhibitionsPath: `${import.meta.env.BASE_URL}תמונות`,
+  studentArtPath: `${import.meta.env.BASE_URL}ציורים בהנחייתי`
 };
 
 export class ContentManager {
