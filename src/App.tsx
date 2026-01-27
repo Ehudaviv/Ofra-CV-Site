@@ -61,11 +61,19 @@ function AppContent() {
 
   // Touch handlers for swipe navigation
   const onTouchStart = (e: React.TouchEvent) => {
+    // Don't trigger swipe on navigation elements
+    const target = e.target as HTMLElement;
+    if (target.closest('nav')) return;
+    
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
+    // Don't trigger swipe on navigation elements
+    const target = e.target as HTMLElement;
+    if (target.closest('nav')) return;
+    
     setTouchEnd(e.targetTouches[0].clientX);
   };
 

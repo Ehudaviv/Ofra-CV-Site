@@ -37,21 +37,31 @@
   align-items: center;
   
   @media (max-width: $breakpoint-tablet) {
-    // Mobile: Fixed bottom navigation
+    // Mobile: Fixed bottom navigation with horizontal scroll
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: $z-index-sticky;
     flex-direction: row;
-    justify-content: space-around;
-    gap: 0;
+    justify-content: flex-start;
+    gap: $spacing-2;
     padding: $spacing-2 $spacing-3 calc($spacing-2 + env(safe-area-inset-bottom));
     background: $color-background-overlay;
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-top: 1px solid rgba(212, 165, 116, 0.15);
     box-shadow: 0 -4px 24px rgba(26, 20, 16, 0.08);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    
+    // Hide scrollbar but keep functionality
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -62,6 +72,10 @@
 .navItem {
   margin: 0;
   padding: 0;
+  
+  @media (max-width: $breakpoint-tablet) {
+    flex-shrink: 0; // Prevent items from shrinking
+  }
 }
 
 .navLink {
@@ -127,10 +141,11 @@
     align-items: center;
     justify-content: center;
     gap: $spacing-1;
-    padding: $spacing-2 $spacing-3;
+    padding: $spacing-2 $spacing-4;
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
-    min-width: 60px;
+    min-width: 70px;
+    white-space: nowrap;
     border-radius: $border-radius-md;
     
     &.active {
