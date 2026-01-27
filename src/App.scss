@@ -172,17 +172,28 @@
   }
 
   @media (max-width: $breakpoint-tablet) {
-    flex-direction: column;
-    gap: $spacing-4;
     padding: $spacing-4 $spacing-5;
     
     h1 {
-      position: static;
       font-size: $font-size-2xl;
+      right: $spacing-5;
     }
     
     > :first-child {
-      position: static;
+      left: $spacing-5;
+    }
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-3 $spacing-4;
+    
+    h1 {
+      font-size: $font-size-xl;
+      right: $spacing-4;
+    }
+    
+    > :first-child {
+      left: $spacing-4;
     }
   }
 }
