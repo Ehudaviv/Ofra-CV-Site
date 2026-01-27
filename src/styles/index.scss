@@ -1,0 +1,55 @@
+// ============================================
+// Global Styles
+// ============================================
+// Import theme configuration with CSS custom properties
+@import './theme.scss';
+
+// Import utility classes
+@import './utilities.scss';
+
+// Reset styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Ensure smooth scrolling for navigation
+html {
+  scroll-behavior: smooth;
+}
+
+// Body styles are defined in theme.scss
+// Additional global styles can be added here as needed
+
+// ============================================
+// Accessibility - Focus Indicators
+// ============================================
+// Visible focus indicators for keyboard navigation
+*:focus {
+  outline: 3px solid var(--color-accent, #d4a574);
+  outline-offset: 2px;
+}
+
+// Enhanced focus for interactive elements
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--color-accent, #d4a574);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.2);
+}
+
+// Focus-visible for modern browsers (only show on keyboard focus)
+*:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+*:focus-visible {
+  outline: 3px solid var(--color-accent, #d4a574);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.2);
+}

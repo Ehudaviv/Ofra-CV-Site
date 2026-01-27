@@ -1,0 +1,546 @@
+// ============================================
+// Sass Mixins and Utilities
+// ============================================
+// Reusable mixins for responsive design, RTL/LTR support, and common patterns
+
+@import './variables.scss';
+
+// ============================================
+// Responsive Breakpoint Mixins
+// ============================================
+
+/**
+ * Mobile-first media query
+ * Usage: @include mobile { ... }
+ */
+@mixin mobile {
+  @media (min-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+/**
+ * Tablet and up media query
+ * Usage: @include tablet { ... }
+ */
+@mixin tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+/**
+ * Desktop and up media query
+ * Usage: @include desktop { ... }
+ */
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+/**
+ * Wide screens and up media query
+ * Usage: @include wide { ... }
+ */
+@mixin wide {
+  @media (min-width: $breakpoint-wide) {
+    @content;
+  }
+}
+
+/**
+ * Ultra-wide screens media query
+ * Usage: @include ultra { ... }
+ */
+@mixin ultra {
+  @media (min-width: $breakpoint-ultra) {
+    @content;
+  }
+}
+
+/**
+ * Custom breakpoint media query
+ * Usage: @include breakpoint(900px) { ... }
+ */
+@mixin breakpoint($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+/**
+ * Max-width media query
+ * Usage: @include max-width(768px) { ... }
+ */
+@mixin max-width($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+// ============================================
+// RTL/LTR Support Mixins
+// ============================================
+
+/**
+ * Apply styles only in RTL mode (Hebrew)
+ * Usage: @include rtl { ... }
+ */
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
+
+/**
+ * Apply styles only in LTR mode (English)
+ * Usage: @include ltr { ... }
+ */
+@mixin ltr {
+  [dir="ltr"] & {
+    @content;
+  }
+}
+
+/**
+ * Directional padding (automatically flips for RTL)
+ * Usage: @include padding-start(16px);
+ */
+@mixin padding-start($value) {
+  padding-left: $value;
+  
+  @include rtl {
+    padding-left: 0;
+    padding-right: $value;
+  }
+}
+
+@mixin padding-end($value) {
+  padding-right: $value;
+  
+  @include rtl {
+    padding-right: 0;
+    padding-left: $value;
+  }
+}
+
+/**
+ * Directional margin (automatically flips for RTL)
+ * Usage: @include margin-start(16px);
+ */
+@mixin margin-start($value) {
+  margin-left: $value;
+  
+  @include rtl {
+    margin-left: 0;
+    margin-right: $value;
+  }
+}
+
+@mixin margin-end($value) {
+  margin-right: $value;
+  
+  @include rtl {
+    margin-right: 0;
+    margin-left: $value;
+  }
+}
+
+/**
+ * Directional text alignment
+ * Usage: @include text-start;
+ */
+@mixin text-start {
+  text-align: left;
+  
+  @include rtl {
+    text-align: right;
+  }
+}
+
+@mixin text-end {
+  text-align: right;
+  
+  @include rtl {
+    text-align: left;
+  }
+}
+
+/**
+ * Directional float
+ * Usage: @include float-start;
+ */
+@mixin float-start {
+  float: left;
+  
+  @include rtl {
+    float: right;
+  }
+}
+
+@mixin float-end {
+  float: right;
+  
+  @include rtl {
+    float: left;
+  }
+}
+
+// ============================================
+// Container Mixins
+// ============================================
+
+/**
+ * Standard container with max-width and centered
+ * Usage: @include container;
+ */
+@mixin container {
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+  
+  @include tablet {
+    padding-left: $spacing-6;
+    padding-right: $spacing-6;
+  }
+  
+  @include desktop {
+    padding-left: $spacing-8;
+    padding-right: $spacing-8;
+  }
+}
+
+/**
+ * Narrow container
+ * Usage: @include container-narrow;
+ */
+@mixin container-narrow {
+  max-width: $container-narrow;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+}
+
+/**
+ * Wide container
+ * Usage: @include container-wide;
+ */
+@mixin container-wide {
+  max-width: $container-wide;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+}
+
+// ============================================
+// Typography Mixins
+// ============================================
+
+/**
+ * Heading styles with Yemenite theme
+ * Usage: @include heading-1;
+ */
+@mixin heading-1 {
+  font-family: $font-heading;
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text;
+}
+
+@mixin heading-2 {
+  font-family: $font-heading;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-text;
+}
+
+@mixin heading-3 {
+  font-family: $font-heading;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-text;
+}
+
+/**
+ * Body text styles
+ * Usage: @include body-text;
+ */
+@mixin body-text {
+  font-family: $font-body;
+  font-size: $font-size-md;
+  line-height: $line-height-relaxed;
+  color: $color-text;
+}
+
+/**
+ * Small text styles
+ * Usage: @include small-text;
+ */
+@mixin small-text {
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+  color: $color-text-light;
+}
+
+// ============================================
+// Visual Effect Mixins
+// ============================================
+
+/**
+ * Card style with shadow and border
+ * Usage: @include card;
+ */
+@mixin card {
+  background-color: $color-background-light;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-6;
+  transition: box-shadow $transition-base;
+  
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+}
+
+/**
+ * Focus outline with theme colors
+ * Usage: @include focus-outline;
+ */
+@mixin focus-outline {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}
+
+/**
+ * Visually hidden but accessible to screen readers
+ * Usage: @include visually-hidden;
+ */
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/**
+ * Truncate text with ellipsis
+ * Usage: @include truncate;
+ */
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * Multi-line truncate with ellipsis
+ * Usage: @include line-clamp(3);
+ */
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ============================================
+// Flexbox Utilities
+// ============================================
+
+/**
+ * Flex center (both axes)
+ * Usage: @include flex-center;
+ */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ * Flex between (space-between with center alignment)
+ * Usage: @include flex-between;
+ */
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// ============================================
+// Grid Utilities
+// ============================================
+
+/**
+ * Responsive grid layout
+ * Usage: @include grid(3, 16px);
+ */
+@mixin grid($columns, $gap: $spacing-4) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+/**
+ * Auto-fit grid (responsive columns)
+ * Usage: @include grid-auto-fit(250px);
+ */
+@mixin grid-auto-fit($min-width) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $spacing-4;
+}
+
+/**
+ * Auto-fill grid (responsive columns that fill available space)
+ * Usage: @include grid-auto-fill(200px, 16px);
+ */
+@mixin grid-auto-fill($min-width, $gap: $spacing-4) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+/**
+ * Responsive gallery grid
+ * Adapts columns based on screen size
+ * Usage: @include gallery-grid;
+ */
+@mixin gallery-grid {
+  display: grid;
+  gap: $spacing-4;
+  
+  // Mobile: 1 column
+  grid-template-columns: 1fr;
+  
+  // Tablet: 2 columns
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-6;
+  }
+  
+  // Desktop: 3 columns
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  // Wide: 4 columns
+  @include wide {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-8;
+  }
+}
+
+// ============================================
+// Responsive Utilities
+// ============================================
+
+/**
+ * Hide element on mobile
+ * Usage: @include hide-mobile;
+ */
+@mixin hide-mobile {
+  @include max-width($breakpoint-tablet - 1px) {
+    display: none !important;
+  }
+}
+
+/**
+ * Hide element on tablet and up
+ * Usage: @include hide-tablet-up;
+ */
+@mixin hide-tablet-up {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+/**
+ * Hide element on desktop and up
+ * Usage: @include hide-desktop-up;
+ */
+@mixin hide-desktop-up {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+/**
+ * Show element only on mobile
+ * Usage: @include show-mobile-only;
+ */
+@mixin show-mobile-only {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+/**
+ * Responsive spacing
+ * Adjusts padding/margin based on screen size
+ * Usage: @include responsive-padding-y;
+ */
+@mixin responsive-padding-y {
+  padding-top: $section-padding-mobile;
+  padding-bottom: $section-padding-mobile;
+  
+  @include tablet {
+    padding-top: $section-padding-tablet;
+    padding-bottom: $section-padding-tablet;
+  }
+  
+  @include desktop {
+    padding-top: $section-padding-desktop;
+    padding-bottom: $section-padding-desktop;
+  }
+}
+
+@mixin responsive-padding-x {
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+  
+  @include tablet {
+    padding-left: $spacing-6;
+    padding-right: $spacing-6;
+  }
+  
+  @include desktop {
+    padding-left: $spacing-8;
+    padding-right: $spacing-8;
+  }
+}
+
+/**
+ * Responsive font size
+ * Scales font size based on screen size
+ * Usage: @include responsive-font-size($font-size-2xl, $font-size-3xl, $font-size-4xl);
+ */
+@mixin responsive-font-size($mobile, $tablet: null, $desktop: null) {
+  font-size: $mobile;
+  
+  @if $tablet {
+    @include tablet {
+      font-size: $tablet;
+    }
+  }
+  
+  @if $desktop {
+    @include desktop {
+      font-size: $desktop;
+    }
+  }
+}

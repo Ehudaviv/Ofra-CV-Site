@@ -1,0 +1,247 @@
+// ============================================
+// CSS Custom Properties (CSS Variables)
+// ============================================
+// These CSS variables make the theme values accessible in JavaScript
+// and allow for dynamic theming if needed in the future
+
+@import './variables.scss';
+
+:root {
+  // ============================================
+  // Color Custom Properties
+  // ============================================
+  
+  // Primary colors
+  --color-primary: #{$color-primary};
+  --color-primary-light: #{$color-primary-light};
+  --color-primary-dark: #{$color-primary-dark};
+  
+  // Secondary colors
+  --color-secondary: #{$color-secondary};
+  --color-secondary-light: #{$color-secondary-light};
+  --color-secondary-dark: #{$color-secondary-dark};
+  
+  // Accent colors
+  --color-accent: #{$color-accent};
+  --color-accent-light: #{$color-accent-light};
+  --color-accent-dark: #{$color-accent-dark};
+  
+  // Background colors
+  --color-background: #{$color-background};
+  --color-background-light: #{$color-background-light};
+  --color-background-dark: #{$color-background-dark};
+  
+  // Text colors
+  --color-text: #{$color-text};
+  --color-text-light: #{$color-text-light};
+  --color-text-muted: #{$color-text-muted};
+  
+  // Utility colors
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-error: #{$color-error};
+  --color-success: #{$color-success};
+  --color-border: #{$color-border};
+  
+  // ============================================
+  // Typography Custom Properties
+  // ============================================
+  
+  // Font families
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};
+  --font-hebrew: #{$font-hebrew};
+  --font-code: #{$font-code};
+  
+  // Font sizes
+  --font-size-base: #{$font-size-base};
+  --font-size-xs: #{$font-size-xs};
+  --font-size-sm: #{$font-size-sm};
+  --font-size-md: #{$font-size-md};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-xl: #{$font-size-xl};
+  --font-size-2xl: #{$font-size-2xl};
+  --font-size-3xl: #{$font-size-3xl};
+  --font-size-4xl: #{$font-size-4xl};
+  --font-size-5xl: #{$font-size-5xl};
+  
+  // Font weights
+  --font-weight-light: #{$font-weight-light};
+  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+  
+  // Line heights
+  --line-height-tight: #{$line-height-tight};
+  --line-height-normal: #{$line-height-normal};
+  --line-height-relaxed: #{$line-height-relaxed};
+  --line-height-loose: #{$line-height-loose};
+  
+  // Letter spacing
+  --letter-spacing-tight: #{$letter-spacing-tight};
+  --letter-spacing-normal: #{$letter-spacing-normal};
+  --letter-spacing-wide: #{$letter-spacing-wide};
+  --letter-spacing-wider: #{$letter-spacing-wider};
+  
+  // ============================================
+  // Spacing Custom Properties
+  // ============================================
+  
+  --spacing-unit: #{$spacing-unit};
+  --spacing-0: #{$spacing-0};
+  --spacing-1: #{$spacing-1};
+  --spacing-2: #{$spacing-2};
+  --spacing-3: #{$spacing-3};
+  --spacing-4: #{$spacing-4};
+  --spacing-5: #{$spacing-5};
+  --spacing-6: #{$spacing-6};
+  --spacing-8: #{$spacing-8};
+  --spacing-10: #{$spacing-10};
+  --spacing-12: #{$spacing-12};
+  --spacing-16: #{$spacing-16};
+  --spacing-20: #{$spacing-20};
+  --spacing-24: #{$spacing-24};
+  
+  // Section spacing
+  --section-padding-mobile: #{$section-padding-mobile};
+  --section-padding-tablet: #{$section-padding-tablet};
+  --section-padding-desktop: #{$section-padding-desktop};
+  
+  // Container widths
+  --container-max-width: #{$container-max-width};
+  --container-narrow: #{$container-narrow};
+  --container-wide: #{$container-wide};
+  
+  // ============================================
+  // Border Radius Custom Properties
+  // ============================================
+  
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-md: #{$border-radius-md};
+  --border-radius-lg: #{$border-radius-lg};
+  --border-radius-xl: #{$border-radius-xl};
+  --border-radius-full: #{$border-radius-full};
+  
+  // ============================================
+  // Shadow Custom Properties
+  // ============================================
+  
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+  
+  // ============================================
+  // Transition Custom Properties
+  // ============================================
+  
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+  
+  // ============================================
+  // Z-Index Custom Properties
+  // ============================================
+  
+  --z-index-dropdown: #{$z-index-dropdown};
+  --z-index-sticky: #{$z-index-sticky};
+  --z-index-fixed: #{$z-index-fixed};
+  --z-index-modal-backdrop: #{$z-index-modal-backdrop};
+  --z-index-modal: #{$z-index-modal};
+  --z-index-popover: #{$z-index-popover};
+  --z-index-tooltip: #{$z-index-tooltip};
+}
+
+// ============================================
+// RTL (Right-to-Left) Support
+// ============================================
+// Override CSS variables for RTL languages (Hebrew)
+
+[dir="rtl"] {
+  // Adjust letter spacing for Hebrew text
+  --letter-spacing-normal: 0.01em;
+  --letter-spacing-wide: 0.03em;
+  
+  // Use Hebrew-optimized font family
+  --font-body: #{$font-hebrew};
+}
+
+// ============================================
+// Theme Application
+// ============================================
+// Apply theme colors to body element
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Heading styles with Yemenite-inspired typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-4);
+}
+
+h1 {
+  font-size: var(--font-size-5xl);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+}
+
+h3 {
+  font-size: var(--font-size-3xl);
+}
+
+h4 {
+  font-size: var(--font-size-2xl);
+}
+
+h5 {
+  font-size: var(--font-size-xl);
+}
+
+h6 {
+  font-size: var(--font-size-lg);
+}
+
+// Paragraph styles
+p {
+  margin-bottom: var(--spacing-4);
+  line-height: var(--line-height-relaxed);
+}
+
+// Link styles with Yemenite accent colors
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  
+  &:hover {
+    color: var(--color-secondary-light);
+  }
+  
+  &:active {
+    color: var(--color-secondary-dark);
+  }
+}
+
+// Code styles
+code {
+  font-family: var(--font-code);
+  background-color: var(--color-background-dark);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+}

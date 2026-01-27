@@ -1,0 +1,140 @@
+{
+  "navigation": {
+    "about": "About",
+    "articles": "Articles",
+    "exhibitions": "Exhibitions and Events",
+    "studentArt": "Student Artwork",
+    "links": "External Links"
+  },
+  "header": {
+    "title": "Ofra Seri"
+  },
+  "about": {
+    "title": "About Me",
+    "biography": ""
+  },
+  "articles": {
+    "title": "Academic Articles",
+    "afya": {
+      "title": "Afya: Exploring Yemenite Cultural Identity Through Contemporary Art",
+      "summary": "This article examines the intersection of traditional Yemenite cultural heritage and contemporary artistic expression. Through a comprehensive analysis of visual motifs, symbolic representations, and cultural narratives, the research explores how Yemenite identity is preserved, transformed, and reimagined in modern artistic contexts. The study investigates the role of art in maintaining cultural continuity while adapting to contemporary aesthetic sensibilities and social realities."
+    },
+    "palestinianArt": {
+      "title": "Contemporary Palestinian Art: Cultural Resistance and Identity Formation",
+      "summary": "An in-depth scholarly analysis of Palestinian artistic movements and their profound cultural significance in the context of national identity and resistance. This research examines how Palestinian artists utilize visual language to express collective memory, political consciousness, and cultural resilience. The article explores various artistic mediums and methodologies employed by Palestinian artists to document their lived experiences, challenge dominant narratives, and assert their cultural presence in the global art discourse."
+    },
+    "religiousArt": {
+      "title": "Religious Art in the Postmodern Era: From Exclusion to Acceptance",
+      "summary": "This comprehensive study traces the evolution of religious art within contemporary society, examining its transition from marginalization to mainstream acceptance in postmodern discourse. The research analyzes how religious themes and spiritual content have been reintegrated into contemporary art practices, challenging secular assumptions and expanding the boundaries of acceptable artistic expression. Through critical examination of key works and movements, the article demonstrates how religious art has reclaimed its place in modern cultural conversations while adapting to contemporary aesthetic and philosophical frameworks."
+    },
+    "yemenitePortrait": {
+      "title": "The Yemenite Portrait: Tradition, Identity, and Representation in Modern Art",
+      "summary": "A scholarly investigation into the traditions of Yemenite portraiture and their contemporary manifestations in modern artistic practice. This research explores how traditional Yemenite aesthetic principles, symbolic systems, and cultural values are translated into contemporary portrait art. The study examines the technical, thematic, and conceptual approaches employed by artists working within this tradition, analyzing how they balance cultural authenticity with modern artistic innovation. The article contributes to understanding the role of portraiture in preserving and transmitting Yemenite cultural identity across generations."
+    }
+  },
+  "exhibitions": {
+    "title": "Exhibitions and Events",
+    "separationIntegration": "Separation and Integration Between Soul, Religion and Art",
+    "colorLegend": "Color Legend - In Basel I Dreamed a Dream - Exhibition I Curated",
+    "umSubyan": "Um Subyan - Mother of All Fields - Exhibition I Curated",
+    "lecture": "Me at a Lecture",
+    "courtExhibition": "Presentation of 'I Have Something to Tell You' Exhibition at Jerusalem Magistrate Court",
+    "reuvenMemorial": "Annual Study Day in Memory of Nogah Reuveni - Founder of Neot Kedumim",
+    "childrenVoices": "I Have Something to Tell You - Children Express Their Hearts Following the Iron Swords War",
+    "wallArtConference": "Israeli Wall Art Survey Conference",
+    "heartCircles": "Heart Circles - Women's Celebration for the New Year",
+    "womenGender": "Women and Gender in Israeli Arts - Study Days at University of Haifa with My Participation",
+    "moshavExhibition": "Art Exhibition with Moshav Artists Under My Leadership",
+    "noContent": "No exhibitions available"
+  },
+  "studentArt": {
+    "title": "Student Artwork",
+    "artworkUnderGuidance": "Artwork created under my guidance",
+    "israeliSabra": "Israeli Sabra in exhibition",
+    "unityPainting": "Unity painting by students",
+    "yemeniteWoman": "Yemenite woman painted by students",
+    "idfSoldier": "IDF soldier painting",
+    "pomegranates": "Pomegranates painted by student",
+    "studentPainting": "Painting by student",
+    "studentsPainting1": "Students' painting 1",
+    "studentsPainting2": "Students' painting 2",
+    "studentsPainting3": "Students' painting 3",
+    "studentInClass": "Student in class",
+    "studentCreatingPortrait": "Student creating Yemenite portrait",
+    "studentsCreatingWoman": "Students creating Yemenite woman",
+    "studentsInClass1": "Students in class",
+    "myStudentsInClass": "My students in class",
+    "studentsInClass2": "Students in class",
+    "noContent": "No student artwork available"
+  },
+  "links": {
+    "title": "External Links",
+    "visit": "Visit Site",
+    "categories": {
+      "exhibition": "Exhibition",
+      "event": "Event",
+      "article": "Article",
+      "workshop": "Workshop",
+      "lecture": "Lecture",
+      "artwork": "Artwork"
+    },
+    "link1": {
+      "title": "\"Suddenly\" Exhibition by Noga Frishof",
+      "description": "Exhibition curated by Ofra Seri featuring the work of artist Noga Frishof, exploring themes of spontaneity and artistic expression."
+    },
+    "link2": {
+      "title": "\"Brush, Color, Muse\" - Student Painting Exhibition",
+      "description": "Exhibition showcasing paintings by students from the painting class led by art teacher Ofra Seri, demonstrating their artistic development and creativity."
+    },
+    "link3": {
+      "title": "Um Subyan (Mother of All Fields) Exhibition",
+      "description": "Exhibition featuring works by Orit Ekte, Ofir Ekte, and Raz Ekte, curated by Ofra Seri, exploring themes of motherhood and cultural heritage."
+    },
+    "link4": {
+      "title": "Inspiring Conversation on Yemenite Women's Daily Life",
+      "description": "An inspiring discussion about the daily life of Yemenite women and the invisible world of cleaners in the 20th century, with painter Orit Ekte and portrait researcher Ofra Seri at the Yemenite Jewish Heritage Center."
+    },
+    "link5": {
+      "title": "The Mother, Children and Holy Spirit - Portfolio Magazine",
+      "description": "Article in Portfolio Magazine featuring Orit, Raz, and Ofir Ekte at the Artists' House, exploring family dynamics and spiritual themes in art."
+    },
+    "link6": {
+      "title": "Empowering Community in Lod: Education as a Bridge",
+      "description": "Article on Ynet about empowering the community in Lod through education, highlighting how education serves as a bridge between generations and sciences."
+    },
+    "link7": {
+      "title": "Women's Empowerment Workshop",
+      "description": "Documentation of a workshop conducted on Women's Empowerment Day, led by Ofra Seri, focusing on personal growth and community building."
+    },
+    "link8": {
+      "title": "Gamzu Celebrates 75 - Art and Study Day",
+      "description": "A day of study and art celebrating Gamzu's 75th anniversary, led by Ofra Seri, featuring lectures, workshops, and artistic activities."
+    },
+    "link9": {
+      "title": "University of Haifa - Art History Department Lecture",
+      "description": "Lecture at the University of Haifa's Art History Department on \"Image and Reality: The Visual Artistic Model in Israeli Art,\" presented by Ofra Seri."
+    },
+    "link10": {
+      "title": "Art Fair Featuring Ofra Seri's Works",
+      "description": "Art fair where original works by Ofra Seri were sold, showcasing her artistic creations and connecting with art collectors."
+    },
+    "link11": {
+      "title": "Student Artwork Creation",
+      "description": "Artwork created by one of Ofra Seri's students, demonstrating the teaching methods and artistic development fostered in her classes."
+    }
+  },
+  "errors": {
+    "documentLoadFailed": "Unable to load document. Please try again later.",
+    "imageLoadFailed": "Unable to load image",
+    "noContent": "No content available"
+  },
+  "common": {
+    "close": "Close",
+    "loading": "Loading...",
+    "open": "Open",
+    "retry": "Retry",
+    "previous": "Previous",
+    "next": "Next",
+    "download": "Download"
+  }
+}

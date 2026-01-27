@@ -1,0 +1,179 @@
+// ============================================
+// Modern Yemenite-Inspired Theme Configuration
+// ============================================
+// Contemporary design with warm, rich aesthetic of Yemenite art
+// Featuring modern gradients, depth, and sophisticated color usage
+
+// ============================================
+// Color Palette - Modern Edition
+// ============================================
+// Primary colors - Warm terracotta with modern vibrancy
+$color-primary: #c96846;           // Vibrant terracotta
+$color-primary-light: #e88b6a;     // Lighter terracotta for hover
+$color-primary-dark: #a84d2f;      // Darker terracotta for depth
+$color-primary-gradient: linear-gradient(135deg, #c96846 0%, #e88b6a 100%);
+
+// Secondary colors - Deep blue with richness
+$color-secondary: #2d5f7d;         // Deep ocean blue
+$color-secondary-light: #4a7a9a;   // Lighter blue for accents
+$color-secondary-dark: #1a3d52;    // Darker blue for depth
+$color-secondary-gradient: linear-gradient(135deg, #2d5f7d 0%, #4a7a9a 100%);
+
+// Accent colors - Luxurious gold tones
+$color-accent: #d4a574;            // Rich gold
+$color-accent-light: #f0c896;      // Lighter gold for highlights
+$color-accent-dark: #b8895a;       // Darker gold for richness
+$color-accent-gradient: linear-gradient(135deg, #d4a574 0%, #f0c896 100%);
+
+// Background colors - Sophisticated neutrals
+$color-background: #fdfbf7;        // Pure warm white
+$color-background-light: #ffffff;  // Pure white for cards
+$color-background-dark: #f5f0e8;   // Warm cream for contrast
+$color-background-overlay: rgba(253, 251, 247, 0.95); // Glassmorphism overlay
+
+// Text colors - Modern hierarchy
+$color-text: #1a1410;              // Rich dark brown - primary text
+$color-text-light: #5a4a3d;        // Medium brown - secondary text
+$color-text-muted: #8a7a6d;        // Light brown - muted text
+
+// Utility colors
+$color-white: #ffffff;
+$color-black: #000000;
+$color-error: #b03828;             // Warm red for errors (darkened for WCAG AA compliance)
+$color-success: #3f6a50;           // Muted green for success (darkened for WCAG AA compliance)
+$color-border: #d4c4b0;            // Subtle border color
+
+// ============================================
+// Typography - Modern & Elegant
+// ============================================
+// Font families - Contemporary with cultural sensitivity
+$font-heading: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+$font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+$font-hebrew: 'Heebo', 'Arial', 'Helvetica', 'Noto Sans Hebrew', sans-serif;
+$font-code: 'JetBrains Mono', 'Courier New', Courier, monospace;
+
+// Font sizes - Refined scale
+$font-size-base: 16px;
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.875rem;   // 14px
+$font-size-md: 1rem;       // 16px
+$font-size-lg: 1.125rem;   // 18px
+$font-size-xl: 1.25rem;    // 20px
+$font-size-2xl: 1.5rem;    // 24px
+$font-size-3xl: 2rem;      // 32px
+$font-size-4xl: 2.5rem;    // 40px
+$font-size-5xl: 3.5rem;    // 56px
+$font-size-6xl: 4.5rem;    // 72px
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Line heights
+$line-height-tight: 1.2;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+$line-height-loose: 2;
+
+// Letter spacing
+$letter-spacing-tighter: -0.05em;
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+$letter-spacing-widest: 0.1em;
+
+// ============================================
+// Spacing System
+// ============================================
+// Base spacing unit (8px system)
+$spacing-unit: 8px;
+
+// Spacing scale
+$spacing-0: 0;
+$spacing-1: $spacing-unit * 0.5;   // 4px
+$spacing-2: $spacing-unit;         // 8px
+$spacing-3: $spacing-unit * 1.5;   // 12px
+$spacing-4: $spacing-unit * 2;     // 16px
+$spacing-5: $spacing-unit * 2.5;   // 20px
+$spacing-6: $spacing-unit * 3;     // 24px
+$spacing-8: $spacing-unit * 4;     // 32px
+$spacing-10: $spacing-unit * 5;    // 40px
+$spacing-12: $spacing-unit * 6;    // 48px
+$spacing-16: $spacing-unit * 8;    // 64px
+$spacing-20: $spacing-unit * 10;   // 80px
+$spacing-24: $spacing-unit * 12;   // 96px
+
+// Section spacing
+$section-padding-mobile: $spacing-12;   // 48px
+$section-padding-tablet: $spacing-16;   // 64px
+$section-padding-desktop: $spacing-20;  // 80px
+
+// Container widths
+$container-max-width: 1200px;
+$container-narrow: 800px;
+$container-wide: 1440px;
+
+// ============================================
+// Breakpoints
+// ============================================
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1440px;
+$breakpoint-ultra: 2560px;
+
+// ============================================
+// Border Radius - Modern & Soft
+// ============================================
+$border-radius-sm: 6px;
+$border-radius-md: 12px;
+$border-radius-lg: 20px;
+$border-radius-xl: 28px;
+$border-radius-2xl: 36px;
+$border-radius-full: 9999px;
+
+// ============================================
+// Shadows - Layered Depth
+// ============================================
+$shadow-xs: 0 1px 2px 0 rgba(26, 20, 16, 0.04);
+$shadow-sm: 0 2px 4px 0 rgba(26, 20, 16, 0.06), 0 1px 2px 0 rgba(26, 20, 16, 0.04);
+$shadow-md: 0 4px 8px -2px rgba(26, 20, 16, 0.08), 0 2px 4px -1px rgba(26, 20, 16, 0.04);
+$shadow-lg: 0 12px 24px -4px rgba(26, 20, 16, 0.1), 0 4px 8px -2px rgba(26, 20, 16, 0.06);
+$shadow-xl: 0 20px 40px -8px rgba(26, 20, 16, 0.12), 0 8px 16px -4px rgba(26, 20, 16, 0.08);
+$shadow-2xl: 0 32px 64px -12px rgba(26, 20, 16, 0.14), 0 12px 24px -6px rgba(26, 20, 16, 0.1);
+$shadow-inner: inset 0 2px 4px 0 rgba(26, 20, 16, 0.06);
+
+// Colored shadows for emphasis
+$shadow-primary: 0 8px 24px -4px rgba(201, 104, 70, 0.3);
+$shadow-accent: 0 8px 24px -4px rgba(212, 165, 116, 0.3);
+
+// ============================================
+// Transitions - Smooth & Refined
+// ============================================
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+// Easing functions
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// ============================================
+// Z-Index Scale
+// ============================================
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;

@@ -1,0 +1,239 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+// ============================================
+// Modern Navigation Component
+// ============================================
+
+.navigation {
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+
+// ============================================
+// Mobile Menu Button
+// ============================================
+
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 48px;
+  height: 48px;
+  padding: $spacing-2;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  z-index: $z-index-dropdown + 1;
+  transition: all $transition-base;
+  
+  @media (max-width: $breakpoint-tablet) {
+    display: flex;
+  }
+  
+  &:hover {
+    background: rgba(212, 165, 116, 0.08);
+    border-color: rgba(212, 165, 116, 0.2);
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+  }
+  
+  &.open {
+    background: rgba(212, 165, 116, 0.12);
+  }
+}
+
+.hamburgerLine {
+  width: 24px;
+  height: 2.5px;
+  background: $color-text;
+  border-radius: $border-radius-full;
+  transition: all $transition-base $ease-bounce;
+  
+  .mobileMenuButton.open &:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+    background: $color-primary;
+  }
+  
+  .mobileMenuButton.open &:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  .mobileMenuButton.open &:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+    background: $color-primary;
+  }
+}
+
+// ============================================
+// Navigation List
+// ============================================
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: $spacing-2;
+  justify-content: center;
+  align-items: center;
+  
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + $spacing-4);
+    left: $spacing-4;
+    right: $spacing-4;
+    background: $color-background-light;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(212, 165, 116, 0.15);
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-xl;
+    padding: $spacing-4;
+    gap: $spacing-2;
+    z-index: $z-index-dropdown;
+    animation: slideDown $transition-base $ease-out;
+    
+    &.mobileOpen {
+      display: flex;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// Navigation Items
+// ============================================
+
+.navItem {
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: block;
+  padding: $spacing-3 $spacing-6;
+  color: $color-text-light;
+  text-decoration: none;
+  font-family: $font-body;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius-lg;
+  transition: all $transition-base;
+  position: relative;
+  letter-spacing: $letter-spacing-wide;
+  white-space: nowrap;
+  
+  [dir="rtl"] & {
+    font-family: $font-hebrew;
+    font-weight: $font-weight-semibold;
+  }
+  
+  // Hover effect with gradient background
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $color-accent-gradient;
+    opacity: 0;
+    border-radius: $border-radius-lg;
+    transition: opacity $transition-base;
+    z-index: -1;
+  }
+  
+  &:hover {
+    color: $color-text;
+    transform: translateY(-2px);
+    
+    &::before {
+      opacity: 0.12;
+    }
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.3);
+  }
+  
+  // Active state
+  &.active {
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+    
+    .indicator {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+    
+    @media (max-width: $breakpoint-tablet) {
+      background: $color-primary-gradient;
+      color: white;
+      font-weight: $font-weight-semibold;
+      box-shadow: $shadow-primary;
+    }
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
+    width: 100%;
+    text-align: center;
+    padding: $spacing-4 $spacing-6;
+    font-size: $font-size-lg;
+  }
+}
+
+// ============================================
+// Indicator Bar
+// ============================================
+
+.indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 60%;
+  height: 3px;
+  background: $color-primary-gradient;
+  border-radius: $border-radius-full;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(201, 104, 70, 0.4);
+  
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+// ============================================
+// RTL Support
+// ============================================
+
+[dir="rtl"] {
+  .navList {
+    @media (max-width: $breakpoint-tablet) {
+      text-align: center;
+    }
+  }
+}

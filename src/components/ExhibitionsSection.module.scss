@@ -1,0 +1,86 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.exhibitionsSection {
+  padding: 0;
+  min-height: 50vh;
+
+  .container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $spacing-8;
+    
+    @media (max-width: $breakpoint-tablet) {
+      padding: 0 $spacing-6;
+    }
+    
+    @media (max-width: $breakpoint-mobile) {
+      padding: 0 $spacing-4;
+    }
+  }
+
+  .title {
+    font-size: $font-size-4xl;
+    margin: 0 0 $spacing-8 0;
+    font-family: $font-heading;
+    font-weight: $font-weight-bold;
+    background: $color-accent-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    padding-bottom: $spacing-4;
+    letter-spacing: $letter-spacing-tight;
+    line-height: $line-height-tight;
+    text-align: left;
+    
+    [dir="rtl"] & {
+      font-family: $font-hebrew;
+      font-weight: $font-weight-black;
+      letter-spacing: $letter-spacing-normal;
+      text-align: right;
+    }
+    
+    // Subtle text shadow for depth
+    filter: drop-shadow(0 2px 8px rgba(212, 165, 116, 0.2));
+
+    // Modern underline accent
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: $color-accent-gradient;
+      border-radius: $border-radius-full;
+      box-shadow: 0 2px 8px rgba(212, 165, 116, 0.4);
+      
+      [dir="rtl"] & {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    @include max-width(767px) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  .loading,
+  .error,
+  .empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 1.125rem;
+    color: var(--color-text, #3d2817);
+  }
+
+  .error {
+    color: var(--color-error, #d32f2f);
+  }
+
+  .empty {
+    color: var(--color-text-light, #6b5744);
+  }
+}
