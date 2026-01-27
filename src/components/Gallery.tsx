@@ -86,16 +86,22 @@ export const Gallery: React.FC<GalleryProps> = ({ images, className }) => {
   }, []);
 
   const handleNext = useCallback(() => {
-    if (selectedIndex !== null && selectedIndex < images.length - 1) {
-      setSelectedIndex(selectedIndex + 1);
-    }
-  }, [selectedIndex, images.length]);
+    setSelectedIndex(prev => {
+      if (prev !== null && prev < images.length - 1) {
+        return prev + 1;
+      }
+      return prev;
+    });
+  }, [images.length]);
 
   const handlePrevious = useCallback(() => {
-    if (selectedIndex !== null && selectedIndex > 0) {
-      setSelectedIndex(selectedIndex - 1);
-    }
-  }, [selectedIndex]);
+    setSelectedIndex(prev => {
+      if (prev !== null && prev > 0) {
+        return prev - 1;
+      }
+      return prev;
+    });
+  }, []);
 
   const handleImageLoad = (imageId: string) => {
     setLoadingStates(prev => ({ ...prev, [imageId]: false }));
