@@ -10,7 +10,7 @@ import { ExhibitionsPage } from './pages/ExhibitionsPage';
 import { StudentArtworkPage } from './pages/StudentArtworkPage';
 import { LinksPage } from './pages/LinksPage';
 import { getI18nService } from './services/I18nService';
-import { NavigationProvider } from './context/NavigationContext';
+import { NavigationProvider, useNavigation } from './context/NavigationContext';
 
 function AppContent() {
   const i18nService = getI18nService();
