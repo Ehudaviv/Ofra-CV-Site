@@ -86,17 +86,33 @@ function AppContent() {
     const isRightSwipe = distance < -minSwipeDistance;
     
     const currentIndex = navigationPaths.indexOf(location.pathname);
+    const isRTL = i18nService.getDirection() === 'rtl';
     
-    if (isRightSwipe && currentIndex < navigationPaths.length - 1) {
-      // Swipe right (finger moves right) - go to next page
-      setDirection('forward'); // Page slides in from right
-      navigate(navigationPaths[currentIndex + 1]);
-    }
-    
-    if (isLeftSwipe && currentIndex > 0) {
-      // Swipe left (finger moves left) - go to previous page
-      setDirection('backward'); // Page slides in from left
-      navigate(navigationPaths[currentIndex - 1]);
+    // In RTL, swipe directions are reversed
+    if (isRTL) {
+      if (isLeftSwipe && currentIndex < navigationPaths.length - 1) {
+        // RTL: Swipe left (finger moves left) - go to next page
+        setDirection('forward');
+        navigate(navigationPaths[currentIndex + 1]);
+      }
+      
+      if (isRightSwipe && currentIndex > 0) {
+        // RTL: Swipe right (finger moves right) - go to previous page
+        setDirection('backward');
+        navigate(navigationPaths[currentIndex - 1]);
+      }
+    } else {
+      if (isRightSwipe && currentIndex < navigationPaths.length - 1) {
+        // LTR: Swipe right (finger moves right) - go to next page
+        setDirection('forward');
+        navigate(navigationPaths[currentIndex + 1]);
+      }
+      
+      if (isLeftSwipe && currentIndex > 0) {
+        // LTR: Swipe left (finger moves left) - go to previous page
+        setDirection('backward');
+        navigate(navigationPaths[currentIndex - 1]);
+      }
     }
   };
 
