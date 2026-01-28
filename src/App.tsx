@@ -90,27 +90,27 @@ function AppContent() {
     
     // In RTL, swipe directions are reversed
     if (isRTL) {
-      if (isLeftSwipe && currentIndex < navigationPaths.length - 1) {
-        // RTL: Swipe left (finger moves left) - go to next page
-        setDirection('forward');
-        navigate(navigationPaths[currentIndex + 1]);
-      }
-      
-      if (isRightSwipe && currentIndex > 0) {
-        // RTL: Swipe right (finger moves right) - go to previous page
-        setDirection('backward');
-        navigate(navigationPaths[currentIndex - 1]);
-      }
-    } else {
       if (isRightSwipe && currentIndex < navigationPaths.length - 1) {
-        // LTR: Swipe right (finger moves right) - go to next page
-        setDirection('forward');
+        // RTL: Swipe LEFT to RIGHT (finger moves right) - go to next page (About → Articles)
+        setDirection('forward'); // Animation: page comes FROM LEFT (-100%) TO RIGHT (0)
         navigate(navigationPaths[currentIndex + 1]);
       }
       
       if (isLeftSwipe && currentIndex > 0) {
-        // LTR: Swipe left (finger moves left) - go to previous page
-        setDirection('backward');
+        // RTL: Swipe RIGHT to LEFT (finger moves left) - go to previous page
+        setDirection('backward'); // Animation: page comes FROM RIGHT (100%) TO LEFT (0)
+        navigate(navigationPaths[currentIndex - 1]);
+      }
+    } else {
+      if (isLeftSwipe && currentIndex < navigationPaths.length - 1) {
+        // LTR: Swipe left (finger moves left) - go to next page
+        setDirection('backward'); // Animation: slide from left (matching swipe direction)
+        navigate(navigationPaths[currentIndex + 1]);
+      }
+      
+      if (isRightSwipe && currentIndex > 0) {
+        // LTR: Swipe right (finger moves right) - go to previous page
+        setDirection('forward'); // Animation: slide from right (matching swipe direction)
         navigate(navigationPaths[currentIndex - 1]);
       }
     }

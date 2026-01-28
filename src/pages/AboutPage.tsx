@@ -11,10 +11,11 @@ export function AboutPage() {
   
   const variants = {
     initial: (direction: string) => ({
-      // In RTL, reverse the animation direction
+      // Forward: slide in from right, Backward: slide in from left
+      // In RTL, reverse the directions
       x: direction === 'forward' 
-        ? (isRTL ? '-100%' : '100%')  // Forward: RTL comes from left, LTR from right
-        : (isRTL ? '100%' : '-100%'), // Backward: RTL comes from right, LTR from left
+        ? (isRTL ? '-100%' : '100%')  // Forward: RTL from left, LTR from right
+        : (isRTL ? '100%' : '-100%'), // Backward: RTL from right, LTR from left
       opacity: 1,
     }),
     animate: {
@@ -22,10 +23,11 @@ export function AboutPage() {
       opacity: 1,
     },
     exit: (direction: string) => ({
-      // In RTL, reverse the animation direction
+      // Forward: slide out to left, Backward: slide out to right
+      // In RTL, reverse the directions
       x: direction === 'forward'
-        ? (isRTL ? '100%' : '-100%')  // Forward: RTL exits to right, LTR to left
-        : (isRTL ? '-100%' : '100%'), // Backward: RTL exits to left, LTR to right
+        ? (isRTL ? '100%' : '-100%')  // Forward: RTL to right, LTR to left
+        : (isRTL ? '-100%' : '100%'), // Backward: RTL to left, LTR to right
       opacity: 1,
     }),
   };
