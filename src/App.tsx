@@ -17,6 +17,7 @@ function AppContent() {
   const [language, setLanguage] = useState(i18nService.getLanguage());
   const location = useLocation();
   const navigate = useNavigate();
+  const { setDirection } = useNavigation();
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -88,11 +89,13 @@ function AppContent() {
     
     if (isRightSwipe && currentIndex < navigationPaths.length - 1) {
       // Swipe right (finger moves right) - go to next page
+      setDirection('forward'); // Page slides in from right
       navigate(navigationPaths[currentIndex + 1]);
     }
     
     if (isLeftSwipe && currentIndex > 0) {
       // Swipe left (finger moves left) - go to previous page
+      setDirection('backward'); // Page slides in from left
       navigate(navigationPaths[currentIndex - 1]);
     }
   };
