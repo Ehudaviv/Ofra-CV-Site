@@ -103,14 +103,14 @@ function AppContent() {
       }
     } else {
       if (isLeftSwipe && currentIndex < navigationPaths.length - 1) {
-        // LTR: Swipe left (finger moves left) - go to next page
-        setDirection('backward'); // Animation: slide from left (matching swipe direction)
+        // LTR: Swipe RIGHT to LEFT (finger moves left) - go to next page (About → Articles)
+        setDirection('forward'); // Animation: page comes FROM RIGHT (100%) TO LEFT (0)
         navigate(navigationPaths[currentIndex + 1]);
       }
       
       if (isRightSwipe && currentIndex > 0) {
-        // LTR: Swipe right (finger moves right) - go to previous page
-        setDirection('forward'); // Animation: slide from right (matching swipe direction)
+        // LTR: Swipe LEFT to RIGHT (finger moves right) - go to previous page
+        setDirection('backward'); // Animation: page comes FROM LEFT (-100%) TO RIGHT (0)
         navigate(navigationPaths[currentIndex - 1]);
       }
     }
