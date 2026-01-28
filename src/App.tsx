@@ -86,13 +86,13 @@ function AppContent() {
     
     const currentIndex = navigationPaths.indexOf(location.pathname);
     
-    if (isLeftSwipe && currentIndex < navigationPaths.length - 1) {
-      // Swipe left - go to next page
+    if (isRightSwipe && currentIndex < navigationPaths.length - 1) {
+      // Swipe right (finger moves right) - go to next page
       navigate(navigationPaths[currentIndex + 1]);
     }
     
-    if (isRightSwipe && currentIndex > 0) {
-      // Swipe right - go to previous page
+    if (isLeftSwipe && currentIndex > 0) {
+      // Swipe left (finger moves left) - go to previous page
       navigate(navigationPaths[currentIndex - 1]);
     }
   };
