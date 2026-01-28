@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ehudaviv.github.io/Ofra-CV-Site/sitemap.xml
