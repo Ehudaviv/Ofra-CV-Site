@@ -71,7 +71,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
           {/* Biography text area */}
           <article className={styles.biographyContainer}>
             {biography ? (
-              <p className={styles.biography}>{biography}</p>
+              <div className={styles.biography}>
+                {biography.split('\n\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
             ) : (
               <p className={styles.emptyBiography}>
                 {language === 'he' ? 'ביוגרפיה תתווסף בקרוב' : 'Biography coming soon'}
